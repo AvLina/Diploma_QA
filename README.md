@@ -36,8 +36,11 @@
 >>
 >> затем
 `.\gradlew allureServe `
+>>
 >> Завершить работу плагина Ctrl+C.
+>> 
 >> Для запуска приложения на СУБД PostgreSQL
 `java "-Dspring.datasource.url=jdbc:postgresql://localhost:5432/app" -jar artifacts/aqa-shop.jar`
+>>
 >> Тесты запускаются командой в другой вкладке терминала
 `.\gradlew test "-Ddb.url=jdbc:postgresql://localhost:5432/app"`
