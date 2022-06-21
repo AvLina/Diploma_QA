@@ -39,7 +39,7 @@ public class TestCreditPage {
         MainPage mainPage = new MainPage();
         CreditPage creditPage = mainPage.chooseCreditPage();
         creditPage.fillForm(DataHelper.getApprovedCardInfo());
-        creditPage.successNotif();
+        creditPage.checkSuccessNotif();
         assertEquals("APPROVED", SqlUtils.getStatusCreditPurchase());
         assertEquals(1, SqlUtils.getRowsCreditPurchase());
     }
@@ -49,7 +49,7 @@ public class TestCreditPage {
         MainPage mainPage = new MainPage();
         CreditPage creditPage = mainPage.chooseCreditPage();
         creditPage.fillForm(DataHelper.getDeclinedCardInfo());
-        creditPage.failNotif();
+        creditPage.checkFailNotif();
         assertEquals("DECLINE", SqlUtils.getStatusCreditPurchase());
         assertEquals(1, SqlUtils.getRowsCreditPurchase());
     }
@@ -59,7 +59,7 @@ public class TestCreditPage {
         MainPage mainPage = new MainPage();
         CreditPage creditPage = mainPage.chooseCreditPage();
         creditPage.fillForm(DataHelper.getAllEmptyFields());
-        creditPage.emptyForm();
+        creditPage.checkEmptyForm();
         assertEquals(0, SqlUtils.getRowsCreditPurchase());
     }
 
@@ -68,7 +68,7 @@ public class TestCreditPage {
         MainPage mainPage = new MainPage();
         CreditPage creditPage = mainPage.chooseCreditPage();
         creditPage.fillForm(DataHelper.getShotCardNumber());
-        creditPage.cardFail();
+        creditPage.checkCardFail();
         assertEquals(0, SqlUtils.getRowsCreditPurchase());
     }
 
@@ -77,7 +77,7 @@ public class TestCreditPage {
         MainPage mainPage = new MainPage();
         CreditPage creditPage = mainPage.chooseCreditPage();
         creditPage.fillForm(DataHelper.getEnAlphabCardNumber());
-        creditPage.cardFail();
+        creditPage.checkCardFail();
         assertEquals(0, SqlUtils.getRowsCreditPurchase());
     }
     @Test
@@ -85,7 +85,7 @@ public class TestCreditPage {
         MainPage mainPage = new MainPage();
         CreditPage creditPage = mainPage.chooseCreditPage();
         creditPage.fillForm(DataHelper.getRussAlphabCardNumber());
-        creditPage.cardFail();
+        creditPage.checkCardFail();
         assertEquals(0, SqlUtils.getRowsCreditPurchase());
     }
 
@@ -94,7 +94,7 @@ public class TestCreditPage {
         MainPage mainPage = new MainPage();
         CreditPage creditPage = mainPage.chooseCreditPage();
         creditPage.fillForm(DataHelper.getSymbolCardNumber());
-        creditPage.cardFail();
+        creditPage.checkCardFail();
         assertEquals(0, SqlUtils.getRowsCreditPurchase());
     }
 
@@ -103,7 +103,7 @@ public class TestCreditPage {
         MainPage mainPage = new MainPage();
         CreditPage creditPage = mainPage.chooseCreditPage();
         creditPage.fillForm(DataHelper.getEmptyCardNumber());
-        creditPage.cardFail();
+        creditPage.checkCardFail();
         assertEquals(0, SqlUtils.getRowsCreditPurchase());
     }
 
@@ -112,7 +112,7 @@ public class TestCreditPage {
         MainPage mainPage = new MainPage();
         CreditPage creditPage = mainPage.chooseCreditPage();
         creditPage.fillForm(DataHelper.getEmptyMonth());
-        creditPage.monthFail();
+        creditPage.checkMonthFail();
         assertEquals(0, SqlUtils.getRowsCreditPurchase());
     }
 
@@ -121,7 +121,7 @@ public class TestCreditPage {
         MainPage mainPage = new MainPage();
         CreditPage creditPage = mainPage.chooseCreditPage();
         creditPage.fillForm(DataHelper.getInvalidMonth());
-        creditPage.inValMonthFail();
+        creditPage.checkInValMonthFail();
         assertEquals(0, SqlUtils.getRowsCreditPurchase());
     }
 
@@ -130,7 +130,7 @@ public class TestCreditPage {
         MainPage mainPage = new MainPage();
         CreditPage creditPage = mainPage.chooseCreditPage();
         creditPage.fillForm(DataHelper.getEnAlphabMonth());
-        creditPage.monthFail();
+        creditPage.checkMonthFail();
         assertEquals(0, SqlUtils.getRowsCreditPurchase());
     }
 
@@ -139,7 +139,7 @@ public class TestCreditPage {
         MainPage mainPage = new MainPage();
         CreditPage creditPage = mainPage.chooseCreditPage();
         creditPage.fillForm(DataHelper.getRusAlphabMonth());
-        creditPage.monthFail();
+        creditPage.checkMonthFail();
         assertEquals(0, SqlUtils.getRowsCreditPurchase());
     }
 
@@ -148,7 +148,7 @@ public class TestCreditPage {
         MainPage mainPage = new MainPage();
         CreditPage creditPage = mainPage.chooseCreditPage();
         creditPage.fillForm(DataHelper.getSymbMonth());
-        creditPage.monthFail();
+        creditPage.checkMonthFail();
         assertEquals(0, SqlUtils.getRowsCreditPurchase());
     }
 
@@ -157,7 +157,7 @@ public class TestCreditPage {
         MainPage mainPage = new MainPage();
         CreditPage creditPage = mainPage.chooseCreditPage();
         creditPage.fillForm(DataHelper.getOntDigitMonth());
-        creditPage.monthFail();
+        creditPage.checkMonthFail();
         assertEquals(0, SqlUtils.getRowsCreditPurchase());
     }
 
@@ -166,7 +166,7 @@ public class TestCreditPage {
         MainPage mainPage = new MainPage();
         CreditPage creditPage = mainPage.chooseCreditPage();
         creditPage.fillForm(DataHelper.getEmptyYear());
-        creditPage.yearFail();
+        creditPage.checkYearFail();
         assertEquals(0, SqlUtils.getRowsCreditPurchase());
     }
 
@@ -175,7 +175,7 @@ public class TestCreditPage {
         MainPage mainPage = new MainPage();
         CreditPage creditPage = mainPage.chooseCreditPage();
         creditPage.fillForm(DataHelper.getPastYear());
-        creditPage.yearFail();
+        creditPage.checkYearFail();
         assertEquals(0, SqlUtils.getRowsCreditPurchase());
     }
 
@@ -184,7 +184,7 @@ public class TestCreditPage {
         MainPage mainPage = new MainPage();
         CreditPage creditPage = mainPage.chooseCreditPage();
         creditPage.fillForm(DataHelper.getEnAlphabYear());
-        creditPage.yearFail();
+        creditPage.checkYearFail();
         assertEquals(0, SqlUtils.getRowsCreditPurchase());
     }
 
@@ -193,7 +193,7 @@ public class TestCreditPage {
         MainPage mainPage = new MainPage();
         CreditPage creditPage = mainPage.chooseCreditPage();
         creditPage.fillForm(DataHelper.getRusAlphabYear());
-        creditPage.yearFail();
+        creditPage.checkYearFail();
         assertEquals(0, SqlUtils.getRowsCreditPurchase());
     }
 
@@ -202,7 +202,7 @@ public class TestCreditPage {
         MainPage mainPage = new MainPage();
         CreditPage creditPage = mainPage.chooseCreditPage();
         creditPage.fillForm(DataHelper.getEmptyCardOwner());
-        creditPage.ownerFail();
+        creditPage.checkOwnerFail();
         assertEquals(0, SqlUtils.getRowsCreditPurchase());
     }
 
@@ -211,7 +211,7 @@ public class TestCreditPage {
         MainPage mainPage = new MainPage();
         CreditPage creditPage = mainPage.chooseCreditPage();
         creditPage.fillForm(DataHelper.getSymbolsCardOwner());
-        creditPage.ownerFail();
+        creditPage.checkOwnerFail();
         assertEquals(0, SqlUtils.getRowsCreditPurchase());
     }
 
@@ -220,7 +220,7 @@ public class TestCreditPage {
         MainPage mainPage = new MainPage();
         CreditPage creditPage = mainPage.chooseCreditPage();
         creditPage.fillForm(DataHelper.getNumericCardOwner());
-        creditPage.ownerFail();
+        creditPage.checkOwnerFail();
         assertEquals(0, SqlUtils.getRowsCreditPurchase());
     }
 
@@ -229,7 +229,7 @@ public class TestCreditPage {
         MainPage mainPage = new MainPage();
         CreditPage creditPage = mainPage.chooseCreditPage();
         creditPage.fillForm(DataHelper.getEmptyCvc());
-        creditPage.CVCFail();
+        creditPage.checkCVCFail();
         assertEquals(0, SqlUtils.getRowsCreditPurchase());
     }
 
@@ -238,7 +238,7 @@ public class TestCreditPage {
         MainPage mainPage = new MainPage();
         CreditPage creditPage = mainPage.chooseCreditPage();
         creditPage.fillForm(DataHelper.getIncorrectCardNumber());
-        creditPage.cardFail();
+        creditPage.checkCardFail();
         assertEquals(0, SqlUtils.getRowsCreditPurchase());
     }
 
@@ -247,7 +247,7 @@ public class TestCreditPage {
         MainPage mainPage = new MainPage();
         CreditPage creditPage = mainPage.chooseCreditPage();
         creditPage.fillForm(DataHelper.getZeroMonth());
-        creditPage.monthFail();
+        creditPage.checkMonthFail();
         assertEquals(0, SqlUtils.getRowsCreditPurchase());
     }
 
@@ -256,7 +256,7 @@ public class TestCreditPage {
         MainPage mainPage = new MainPage();
         CreditPage creditPage = mainPage.chooseCreditPage();
         creditPage.fillForm(DataHelper.getIncorrectYear());
-        creditPage.yearFail();
+        creditPage.checkYearFail();
         assertEquals(0, SqlUtils.getRowsCreditPurchase());
     }
 
@@ -265,7 +265,7 @@ public class TestCreditPage {
         MainPage mainPage = new MainPage();
         CreditPage creditPage = mainPage.chooseCreditPage();
         creditPage.fillForm(DataHelper.getIncorrectCardOwner());
-        creditPage.ownerFail();
+        creditPage.checkOwnerFail();
         assertEquals(0, SqlUtils.getRowsCreditPurchase());
     }
 
@@ -274,7 +274,7 @@ public class TestCreditPage {
         MainPage mainPage = new MainPage();
         CreditPage creditPage = mainPage.chooseCreditPage();
         creditPage.fillForm(DataHelper.getTwoDigitCvc());
-        creditPage.CVCFail();
+        creditPage.checkCVCFail();
         assertEquals(0, SqlUtils.getRowsCreditPurchase());
     }
 
@@ -283,7 +283,7 @@ public class TestCreditPage {
         MainPage mainPage = new MainPage();
         CreditPage creditPage = mainPage.chooseCreditPage();
         creditPage.fillForm(DataHelper.getOneDigitCvc());
-        creditPage.CVCFail();
+        creditPage.checkCVCFail();
         assertEquals(0, SqlUtils.getRowsCreditPurchase());
     }
 }

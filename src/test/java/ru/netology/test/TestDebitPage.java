@@ -37,7 +37,7 @@ public class TestDebitPage {
         MainPage mainPage = new MainPage();
         DebitPage debitPage = mainPage.chooseDebitPage();
         debitPage.fillForm(DataHelper.getApprovedCardInfo());
-        debitPage.successNotif();
+        debitPage.checkSuccessNotif();
         assertEquals("APPROVED", SqlUtils.getStatusDebitPurchase());
         assertEquals(1, SqlUtils.getRowsDebitPurchase());
     }
@@ -47,7 +47,7 @@ public class TestDebitPage {
         MainPage mainPage = new MainPage();
         DebitPage debitPage = mainPage.chooseDebitPage();
         debitPage.fillForm(DataHelper.getDeclinedCardInfo());
-        debitPage.failedNotif();
+        debitPage.checkFailedNotif();
         assertEquals("DECLINED", SqlUtils.getStatusDebitPurchase());
         assertEquals(1, SqlUtils.getRowsDebitPurchase());
     }
@@ -57,7 +57,7 @@ public class TestDebitPage {
         MainPage mainPage = new MainPage();
         DebitPage debitPage = mainPage.chooseDebitPage();
         debitPage.fillForm(DataHelper.getAllEmptyFields());
-        debitPage.emptyForm();
+        debitPage.checkEmptyForm();
         assertEquals(0, SqlUtils.getRowsDebitPurchase());
     }
 
@@ -66,7 +66,7 @@ public class TestDebitPage {
         MainPage mainPage = new MainPage();
         DebitPage debitPage = mainPage.chooseDebitPage();
         debitPage.fillForm(DataHelper.getShotCardNumber());
-        debitPage.cardNumberFail();
+        debitPage.checkCardNumberFail();
         assertEquals(0, SqlUtils.getRowsDebitPurchase());
     }
 
@@ -75,7 +75,7 @@ public class TestDebitPage {
         MainPage mainPage = new MainPage();
         DebitPage debitPage = mainPage.chooseDebitPage();
         debitPage.fillForm(DataHelper.getEnAlphabCardNumber());
-        debitPage.cardNumberFail();
+        debitPage.checkCardNumberFail();
         assertEquals(0, SqlUtils.getRowsDebitPurchase());
     }
 
@@ -84,7 +84,7 @@ public class TestDebitPage {
         MainPage mainPage = new MainPage();
         DebitPage debitPage = mainPage.chooseDebitPage();
         debitPage.fillForm(DataHelper.getSymbolCardNumber());
-        debitPage.cardNumberFail();
+        debitPage.checkCardNumberFail();
         assertEquals(0, SqlUtils.getRowsDebitPurchase());
     }
 
@@ -93,7 +93,7 @@ public class TestDebitPage {
         MainPage mainPage = new MainPage();
         DebitPage debitPage = mainPage.chooseDebitPage();
         debitPage.fillForm(DataHelper.getRussAlphabCardNumber());
-        debitPage.cardNumberFail();
+        debitPage.checkCardNumberFail();
         assertEquals(0, SqlUtils.getRowsDebitPurchase());
     }
 
@@ -102,7 +102,7 @@ public class TestDebitPage {
         MainPage mainPage = new MainPage();
         DebitPage debitPage = mainPage.chooseDebitPage();
         debitPage.fillForm(DataHelper.getEmptyCardNumber());
-        debitPage.cardNumberFail();
+        debitPage.checkCardNumberFail();
         assertEquals(0, SqlUtils.getRowsDebitPurchase());
     }
 
@@ -111,7 +111,7 @@ public class TestDebitPage {
         MainPage mainPage = new MainPage();
         DebitPage debitPage = mainPage.chooseDebitPage();
         debitPage.fillForm(DataHelper.getEmptyMonth());
-        debitPage.monthFail();
+        debitPage.checkMonthFail();
         assertEquals(0, SqlUtils.getRowsDebitPurchase());
     }
 
@@ -120,7 +120,7 @@ public class TestDebitPage {
         MainPage mainPage = new MainPage();
         DebitPage debitPage = mainPage.chooseDebitPage();
         debitPage.fillForm(DataHelper.getInvalidMonth());
-        debitPage.inValMonthFail();
+        debitPage.checkInValMonthFail();
         assertEquals(0, SqlUtils.getRowsDebitPurchase());
     }
 
@@ -129,7 +129,7 @@ public class TestDebitPage {
         MainPage mainPage = new MainPage();
         DebitPage debitPage = mainPage.chooseDebitPage();
         debitPage.fillForm(DataHelper.getEnAlphabMonth());
-        debitPage.monthFail();
+        debitPage.checkMonthFail();
         assertEquals(0, SqlUtils.getRowsDebitPurchase());
     }
 
@@ -138,7 +138,7 @@ public class TestDebitPage {
         MainPage mainPage = new MainPage();
         DebitPage debitPage = mainPage.chooseDebitPage();
         debitPage.fillForm(DataHelper.getRusAlphabMonth());
-        debitPage.monthFail();
+        debitPage.checkMonthFail();
         assertEquals(0, SqlUtils.getRowsDebitPurchase());
     }
 
@@ -147,7 +147,7 @@ public class TestDebitPage {
         MainPage mainPage = new MainPage();
         DebitPage debitPage = mainPage.chooseDebitPage();
         debitPage.fillForm(DataHelper.getSymbMonth());
-        debitPage.monthFail();
+        debitPage.checkMonthFail();
         assertEquals(0, SqlUtils.getRowsDebitPurchase());
     }
 
@@ -156,7 +156,7 @@ public class TestDebitPage {
         MainPage mainPage = new MainPage();
         DebitPage debitPage = mainPage.chooseDebitPage();
         debitPage.fillForm(DataHelper.getOntDigitMonth());
-        debitPage.monthFail();
+        debitPage.checkMonthFail();
         assertEquals(0, SqlUtils.getRowsDebitPurchase());
     }
 
@@ -165,7 +165,7 @@ public class TestDebitPage {
         MainPage mainPage = new MainPage();
         DebitPage debitPage = mainPage.chooseDebitPage();
         debitPage.fillForm(DataHelper.getEmptyYear());
-        debitPage.yearFail();
+        debitPage.checkYearFail();
         assertEquals(0, SqlUtils.getRowsDebitPurchase());
     }
 
@@ -174,7 +174,7 @@ public class TestDebitPage {
         MainPage mainPage = new MainPage();
         DebitPage debitPage = mainPage.chooseDebitPage();
         debitPage.fillForm(DataHelper.getPastYear());
-        debitPage.yearFail();
+        debitPage.checkYearFail();
         assertEquals(0, SqlUtils.getRowsDebitPurchase());
     }
 
@@ -183,7 +183,7 @@ public class TestDebitPage {
         MainPage mainPage = new MainPage();
         DebitPage debitPage = mainPage.chooseDebitPage();
         debitPage.fillForm(DataHelper.getEnAlphabYear());
-        debitPage.yearFail();
+        debitPage.checkYearFail();
         assertEquals(0, SqlUtils.getRowsDebitPurchase());
     }
 
@@ -192,7 +192,7 @@ public class TestDebitPage {
         MainPage mainPage = new MainPage();
         DebitPage debitPage = mainPage.chooseDebitPage();
         debitPage.fillForm(DataHelper.getRusAlphabYear());
-        debitPage.yearFail();
+        debitPage.checkYearFail();
         assertEquals(0, SqlUtils.getRowsDebitPurchase());
     }
 
@@ -201,7 +201,7 @@ public class TestDebitPage {
         MainPage mainPage = new MainPage();
         DebitPage debitPage = mainPage.chooseDebitPage();
         debitPage.fillForm(DataHelper.getEmptyCardOwner());
-        debitPage.ownerFail();
+        debitPage.checkOwnerFail();
         assertEquals(0, SqlUtils.getRowsDebitPurchase());
     }
 
@@ -210,7 +210,7 @@ public class TestDebitPage {
         MainPage mainPage = new MainPage();
         DebitPage debitPage = mainPage.chooseDebitPage();
         debitPage.fillForm(DataHelper.getSymbolsCardOwner());
-        debitPage.ownerFail();
+        debitPage.checkOwnerFail();
         assertEquals(0, SqlUtils.getRowsDebitPurchase());
     }
 
@@ -219,7 +219,7 @@ public class TestDebitPage {
         MainPage mainPage = new MainPage();
         DebitPage debitPage = mainPage.chooseDebitPage();
         debitPage.fillForm(DataHelper.getNumericCardOwner());
-        debitPage.ownerFail();
+        debitPage.checkOwnerFail();
         assertEquals(0, SqlUtils.getRowsDebitPurchase());
     }
 
@@ -228,7 +228,7 @@ public class TestDebitPage {
         MainPage mainPage = new MainPage();
         DebitPage debitPage = mainPage.chooseDebitPage();
         debitPage.fillForm(DataHelper.getEmptyCvc());
-        debitPage.CVCFail();
+        debitPage.checkCVCFail();
         assertEquals(0, SqlUtils.getRowsDebitPurchase());
     }
 
@@ -237,7 +237,7 @@ public class TestDebitPage {
         MainPage mainPage = new MainPage();
         DebitPage debitPage = mainPage.chooseDebitPage();
         debitPage.fillForm(DataHelper.getIncorrectCardNumber());
-        debitPage.cardNumberFail();
+        debitPage.checkCardNumberFail();
         assertEquals(0, SqlUtils.getRowsDebitPurchase());
     }
 
@@ -246,7 +246,7 @@ public class TestDebitPage {
         MainPage mainPage = new MainPage();
         DebitPage debitPage = mainPage.chooseDebitPage();
         debitPage.fillForm(DataHelper.getZeroMonth());
-        debitPage.monthFail();
+        debitPage.checkMonthFail();
         assertEquals(0, SqlUtils.getRowsDebitPurchase());
     }
 
@@ -255,7 +255,7 @@ public class TestDebitPage {
         MainPage mainPage = new MainPage();
         DebitPage debitPage = mainPage.chooseDebitPage();
         debitPage.fillForm(DataHelper.getIncorrectYear());
-        debitPage.yearFail();
+        debitPage.checkYearFail();
         assertEquals(0, SqlUtils.getRowsDebitPurchase());
     }
 
@@ -264,7 +264,7 @@ public class TestDebitPage {
         MainPage mainPage = new MainPage();
         DebitPage debitPage = mainPage.chooseDebitPage();
         debitPage.fillForm(DataHelper.getIncorrectCardOwner());
-        debitPage.ownerFail();
+        debitPage.checkOwnerFail();
         assertEquals(0, SqlUtils.getRowsDebitPurchase());
     }
 
@@ -273,7 +273,7 @@ public class TestDebitPage {
         MainPage mainPage = new MainPage();
         DebitPage debitPage = mainPage.chooseDebitPage();
         debitPage.fillForm(DataHelper.getTwoDigitCvc());
-        debitPage.CVCFail();
+        debitPage.checkCVCFail();
         assertEquals(0, SqlUtils.getRowsDebitPurchase());
     }
 
@@ -282,7 +282,7 @@ public class TestDebitPage {
         MainPage mainPage = new MainPage();
         DebitPage debitPage = mainPage.chooseDebitPage();
         debitPage.fillForm(DataHelper.getOneDigitCvc());
-        debitPage.CVCFail();
+        debitPage.checkCVCFail();
         assertEquals(0, SqlUtils.getRowsDebitPurchase());
     }
 }

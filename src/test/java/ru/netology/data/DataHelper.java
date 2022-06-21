@@ -8,59 +8,51 @@ import java.util.Locale;
 import java.util.Random;
 
 public class DataHelper {
-    static Faker faker = new Faker(new Locale("en"));
 
     private DataHelper() {
     }
 
-    public static String generateDate(int month, String pattern) {
+
+    public static String generateDateAndPast(int month, String pattern) {
         return LocalDate.now().plusMonths(month).format(DateTimeFormatter.ofPattern(pattern));
     }
 
-    public static String generatePast(int month, String pattern) {
-        return LocalDate.now().minusMonths(month).format(DateTimeFormatter.ofPattern(pattern));
-    }
-
     public static String generatePastYear() {
-        return generatePast(12, "YY");
+        return generateDateAndPast(12, "YY");
     }
 
     public static String generateValidYear() {
-        return generateDate(15, "YY");
+        return generateDateAndPast(15, "YY");
     }
 
     public static String generateValidMonth() {
-        return generateDate(6, "MM");
+        return generateDateAndPast(6, "MM");
     }
 
     public static String generateInValidYear() {
-        return generateDate(72, "YY");
+        return generateDateAndPast(72, "YY");
     }
 
     public static String generateValidCardOwner() {
         Faker faker = new Faker(new Locale("en"));
-        String vaildCardOwner = faker.name().firstName() + " " + faker.name().lastName();
-        return vaildCardOwner;
+        return faker.name().firstName() + " " + faker.name().lastName();
     }
 
     public static String generateInValidCardOwner() {
         Faker faker = new Faker(new Locale("ru"));
-        String inValidCardOwner = faker.name().fullName();
-        return inValidCardOwner;
+        return faker.name().fullName();
     }
 
     public static String generateCVC() {
         Random rnd = new Random();
         int cvc = rnd.nextInt(900) + 100;
-        String cv = String.valueOf(cvc);
-        return cv;
+        return String.valueOf(cvc);
     }
 
     public static String generateOneDigitMonth() {
         Random rnd = new Random();
         int mon = rnd.nextInt(9) + 1;
-        String mth = String.valueOf(mon);
-        return mth;
+        return String.valueOf(mon);
     }
 
     public static CardInfo getApprovedCardInfo() {
